@@ -16,6 +16,8 @@ class CongestionTaxCalculatorTest {
 	@Test
 	void test() {
 		Car car = new Car();
+		Tractor tractor = new Tractor();
+		EmergencyVehicle emergencyVehicle = new EmergencyVehicle();
 		
 		// Check the fees at different time points
 		Date date1 = new Date();
@@ -117,6 +119,20 @@ class CongestionTaxCalculatorTest {
 		Date[] dates10 = {date10};
 				
 		assertEquals(0, congestionTaxCalculator.getTax(car, dates10));
+		
+		// Two examples of toll free vehicle shall have no fee
+		Date[] datesAll = {date1, date2, date3, date4, date5, date6, date7, date8, date9, date10};
+		assertEquals(0, congestionTaxCalculator.getTax(tractor, datesAll));
+		assertEquals(0, congestionTaxCalculator.getTax(emergencyVehicle, datesAll));
+		
+		// Only taxed once per hour
+		Date[] dates11 = {date5, date5};
+		
+		assertEquals(8, congestionTaxCalculator.getTax(car, dates11));
+		
+		Date[] dates12 = {date5, date5, date7, date7};
+		assertEquals(26, congestionTaxCalculator.getTax(car, dates12));
+		// only handles it correctly once
 	}
 
 }
