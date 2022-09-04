@@ -5,5 +5,9 @@ public class DiplomatVehicle implements Vehicle {
 	public String getVehicleType() {
 		return "Diplomat";
 	}
-
+	
+	@Override
+	public boolean isTollFree() {
+		return true;
+	}
 }

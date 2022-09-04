@@ -4,4 +4,9 @@ public class ForeignVehicle implements Vehicle {
 	public String getVehicleType() {
 		return "Foreign";
 	}
+	
+	@Override
+	public boolean isTollFree() {
+		return true;
+	}
 }

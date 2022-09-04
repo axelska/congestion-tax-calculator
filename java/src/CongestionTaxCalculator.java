@@ -8,18 +8,6 @@ import java.util.*;
 import java.text.*;
 
 public class CongestionTaxCalculator {
-
-    private static Map<String, Integer> tollFreeVehicles = new HashMap<>();
-
-    static {
-        tollFreeVehicles.put("Motorcycle", 0);
-        tollFreeVehicles.put("Tractor", 1);
-        tollFreeVehicles.put("Emergency", 2);
-        tollFreeVehicles.put("Diplomat", 3);
-        tollFreeVehicles.put("Foreign", 4);
-        tollFreeVehicles.put("Military", 5);
-
-    }
     
     public int getTax(Vehicle vehicle, Date[] dates)
     {
@@ -50,15 +38,9 @@ public class CongestionTaxCalculator {
         return totalFee;
     }
 
-    private boolean IsTollFreeVehicle(Vehicle vehicle) {
-        if (vehicle == null) return false;
-        String vehicleType = vehicle.getVehicleType();
-        return tollFreeVehicles.containsKey(vehicleType);
-    }
-
     public int GetTollFee(Date date, Vehicle vehicle)
     {
-        if (IsTollFreeDate(date) || IsTollFreeVehicle(vehicle)) return 0;
+        if (IsTollFreeDate(date) || vehicle.isTollFree()) return 0;
 
         int hour = date.getHours();
         int minute = date.getMinutes();

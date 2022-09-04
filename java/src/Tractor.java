@@ -5,5 +5,9 @@ public class Tractor implements Vehicle {
 	public String getVehicleType() {
 		return "Tractor";
 	}
-
+	
+	@Override
+	public boolean isTollFree() {
+		return true;
+	}
 }

@@ -8,4 +8,9 @@ public class Motorbike implements Vehicle {
     public String getVehicleType() {
         return "Motorbike";
     }
+    
+    @Override
+	public boolean isTollFree() {
+		return true;
+	}
 }

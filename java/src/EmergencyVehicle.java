@@ -5,5 +5,9 @@ public class EmergencyVehicle implements Vehicle {
 	public String getVehicleType() {
 		return "Emergency";
 	}
-
+	
+	@Override
+	public boolean isTollFree() {
+		return true;
+	}
 }
