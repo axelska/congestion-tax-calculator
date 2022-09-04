@@ -11,3 +11,5 @@ Found it useful to remove more responsibility for showing if they are toll free 
 Introduced a VehicleTypeHandler class to remove responsibility from other classes.
 
 I put the vehicle classes and the interface in their own package to make it more easy to get an overview of the application. 
+
+Found the bug making the calculator handle more than one 60 min interval but have not fixed it.

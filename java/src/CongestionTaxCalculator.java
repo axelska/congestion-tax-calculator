@@ -14,7 +14,10 @@ public class CongestionTaxCalculator {
     
     public int getTax(Vehicle vehicle, Date[] dates)
     {
-        Date intervalStart = dates[0];
+        // To handle more than one 60 min interval
+    	// and fix the bug intervalStart
+    	// needs to change value in some way
+    	Date intervalStart = dates[0];
         int totalFee = 0;
 
         for (int i = 0; i < dates.length ; i++) {
