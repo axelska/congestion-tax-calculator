@@ -1,4 +1,6 @@
-
+/**
+ * The user interface of the application
+ */
 import javax.swing.*;
 
 import vehicles.Vehicle;
