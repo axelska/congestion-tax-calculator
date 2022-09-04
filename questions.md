@@ -6,7 +6,7 @@ I do not think that the GUI solution with Swing is optimal. Would habe liked to 
 
 Do not know the correct toll free dates, so I can not debug it.
 
-Found it useful to remove more responsibility for showing if they are toll free to the cars.
+Found it useful to remove more responsibility for showing if they are toll free to the cars. In this case it removed the bug from using "Motorcyle" and "Motorbike" interchangeably.
 
 Introduced a VehicleTypeHandler class to remove responsibility from other classes.
 
