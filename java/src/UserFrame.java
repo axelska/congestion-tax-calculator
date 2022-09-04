@@ -8,6 +8,7 @@ import java.awt.event.*;
 public class UserFrame {
 	JFrame frame;
 	ArrayList<Date> dates = new ArrayList<Date>();
+	CongestionTaxCalculator calculator = new CongestionTaxCalculator();
 	
 	public UserFrame() {
 		frame = new JFrame();
@@ -125,10 +126,48 @@ public class UserFrame {
 		frame.add(attCrossingButton);
 		
 		
+		
+		// Submit button and output
+	    JLabel outPutLable = new JLabel("");
+	    outPutLable.setBounds(1,320, 400,30);
+	    frame.add(outPutLable);
+				
+		JButton submitButton =new JButton("Submit");
+		submitButton.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		if(dates.size() < 1) {
+	    			crossingLable.setText("Add a crossing time");
+	    		}
+	    		else {
+	    			Date[] dateArray = getDateArray(dates);
+	    			String vehicleTypeString = vehicleBox.getSelectedItem().toString();
+		    		Vehicle vehicle = VehicleTypeHandler.getVehicleOfType(vehicleTypeString);
+		    		
+		    		int fee = calculator.getTax(vehicle, dateArray);
+
+		    		outPutLable.setText("Fee: " + fee);
+	    		}
+	    		
+	    	}
+        }); 
+		
+		submitButton.setBounds(1,280, 150,30);
+		frame.add(submitButton);
+		
 		// Frame layout
 		frame.setSize(500,500);
 		frame.setLayout(null);  
 		frame.setVisible(true);
 		
 	}
+	
+	private Date[] getDateArray(ArrayList<Date> dates) {
+		int length = dates.size();
+		Date[] datesArray = new Date[length];
+		for(int i=0; i<length; i++) {
+			datesArray[i] = dates.get(i);
+		}
+		return datesArray;
+	}
+	
 }

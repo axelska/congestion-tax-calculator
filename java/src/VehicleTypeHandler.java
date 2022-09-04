@@ -20,4 +20,15 @@ public class VehicleTypeHandler {
 		
 		return vehicleNames;
 	}
+	
+	public static Vehicle getVehicleOfType(String vehicleType) {
+		Vehicle outVehicle = new Car();
+		
+		for(Vehicle vehicle : vehicles) {
+			if(vehicle.getVehicleType().equals(vehicleType)) {
+				outVehicle = vehicle;
+			}
+		}
+		return outVehicle;
+	}
 }
