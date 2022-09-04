@@ -3,9 +3,11 @@ import javax.swing.*;
 
 
 import java.util.*;
+import java.awt.event.*;
 
 public class UserFrame {
 	JFrame frame;
+	ArrayList<Date> dates = new ArrayList<Date>();
 	
 	public UserFrame() {
 		frame = new JFrame();
@@ -72,7 +74,55 @@ public class UserFrame {
 		secondLable.setBounds(1,160, 100,30);
 		frame.add(secondLable);
 		
+		// Show number of crossings
+	    JLabel crossingLable = new JLabel("");
+		crossingLable.setBounds(155,240, 200,30);
+		frame.add(crossingLable);
 		
+		// Select vehicle type
+		String[] vehicles = VehicleTypeHandler.getVehicleTypeNames();
+		JComboBox vehicleBox = new JComboBox(vehicles);
+		vehicleBox.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		dates = new ArrayList<Date>();
+	    		crossingLable.setText("");
+	    	}
+	    });
+		vehicleBox.setBounds(100, 200,100,30);    
+	    frame.add(vehicleBox);  
+		
+	    JLabel vehicleLable = new JLabel("Select vehicle:");
+	    vehicleLable.setBounds(1,200, 100,30);
+		frame.add(vehicleLable);
+		
+		// Button to add time
+		JButton attCrossingButton =new JButton("Add crossing time");
+		attCrossingButton.addActionListener(new ActionListener() {
+			    public void actionPerformed(ActionEvent e) {
+			    		int month = (int) monthSpinner.getModel().getValue();
+			    		int day = (int) daySpinner.getModel().getValue();
+			    		int hours = (int) hourSpinner.getModel().getValue();
+			    		int minutes = (int) minuteSpinner.getModel().getValue();
+			    		int seconds = (int) secondSpinner.getModel().getValue();
+				
+			    		if(month==2 && day>28 || month==4 && day>30 || month==6 && day>30 || month==9 && day>30 || month==11 && day>30) {
+			    			dayWarningLable.setText("Too high day-number: " + day);
+			    		} else {
+			    			Date date = new Date();
+			    			date.setYear(2013); // assumed to be in 2013
+			    			date.setMonth(month-1);
+			    			date.setHours(hours);
+			    			date.setMinutes(minutes);
+			    			date.setSeconds(seconds);
+			    			
+			    			dates.add(date);
+			    			
+			    			crossingLable.setText("Number of crossings: " + dates.size());
+			    		}
+			    }
+		});  
+		attCrossingButton.setBounds(1,240, 150,30);
+		frame.add(attCrossingButton);
 		
 		
 		// Frame layout
