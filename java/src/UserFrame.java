@@ -1,6 +1,7 @@
 
 import javax.swing.*;
 
+import vehicles.Vehicle;
 
 import java.util.*;
 import java.awt.event.*;

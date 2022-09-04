@@ -1,16 +1,17 @@
+package vehicles;
 
 
 import java.util.*;
 import java.text.*;
 
-public class Motorbike implements Vehicle {
-    @Override
+public class Car implements Vehicle {
+	@Override
     public String getVehicleType() {
-        return "Motorbike";
+        return "Car";
     }
-    
-    @Override
+	
+	@Override
 	public boolean isTollFree() {
-		return true;
+		return false;
 	}
 }

@@ -1,6 +1,15 @@
 
 import java.util.*;
 
+import vehicles.Car;
+import vehicles.DiplomatVehicle;
+import vehicles.EmergencyVehicle;
+import vehicles.ForeignVehicle;
+import vehicles.MilitaryVehicle;
+import vehicles.Motorbike;
+import vehicles.Tractor;
+import vehicles.Vehicle;
+
 public class VehicleTypeHandler {
 	private static Vehicle[] vehicles = {new Motorbike(),
 			new Tractor(),

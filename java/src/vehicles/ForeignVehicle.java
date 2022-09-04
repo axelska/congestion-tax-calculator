@@ -1,9 +1,8 @@
-
-public class DiplomatVehicle implements Vehicle {
-
+package vehicles;
+public class ForeignVehicle implements Vehicle {
 	@Override
 	public String getVehicleType() {
-		return "Diplomat";
+		return "Foreign";
 	}
 	
 	@Override

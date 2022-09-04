@@ -1,9 +1,10 @@
+package vehicles;
 
-public class EmergencyVehicle implements Vehicle {
+public class Tractor implements Vehicle {
 
 	@Override
 	public String getVehicleType() {
-		return "Emergency";
+		return "Tractor";
 	}
 	
 	@Override

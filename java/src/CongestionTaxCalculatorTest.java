@@ -3,6 +3,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import vehicles.Car;
+import vehicles.EmergencyVehicle;
+import vehicles.Tractor;
+
 import java.util.Date;
 
 class CongestionTaxCalculatorTest {

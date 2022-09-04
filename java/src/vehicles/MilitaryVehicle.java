@@ -1,4 +1,4 @@
-
+package vehicles;
 public class MilitaryVehicle implements Vehicle {
 
 	@Override
