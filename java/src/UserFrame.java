@@ -75,8 +75,6 @@ public class UserFrame {
 		
 		
 		
-		
-		
 		// Frame layout
 		frame.setSize(500,500);
 		frame.setLayout(null);  
